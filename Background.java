@@ -2,66 +2,36 @@ public class Background
 {
     public static void main (String [] args)
     {
-        GameArena arena = new GameArena(2000, 1000);
+        GameArena arena = new GameArena(1500, 750);
 
-        Ball tinyBall = new Ball(1000, 500, 50, "CYAN");
+        Rectangle grass = new Rectangle(0, 650, 1500, 100, "GREEN");
 
-        arena.addBall(tinyBall);
+        Rectangle[] pipes = new Rectangle[4];
 
-        //Rectangle bottom = new Rectangle(2000)
+        pipes[0] = new Rectangle(1000, 250, 100, 1000, "CYAN"); 
+        pipes[1] = new Rectangle(1500, 250, 100, 1000, "RED"); 
+        pipes[2] = new Rectangle(2000, 250, 100, 1000, "MAGENTA"); 
+        pipes[3] = new Rectangle(2500, 250, 100, 1000, "WHITE"); 
 
+        arena.addRectangle(grass);
+
+        for (int i = 0; i < 4; i++)
+        {
+            arena.addRectangle(pipes[i]);
+        }
+  
         while(true)
         {
-            
-            while (arena.downPressed())
+            for(int i = 0; i < 4; i++)
             {
-                tinyBall.setYPosition(tinyBall.getYPosition() + 5);
-                arena.pause();
+                pipes[i].setXPosition​(pipes[i].getXPosition() - 5);
 
-                if (arena.getArenaHeight() == tinyBall.getYPosition())
+                if (pipes[i].getXPosition() < 0)
                 {
-                    tinyBall.setYPosition(tinyBall.getYPosition() - 5);
-                    arena.pause();
+                    pipes[i].setXPosition​(2000);
                 }
+
             }
-
-            while (arena.leftPressed())
-            {
-                tinyBall.setXPosition(tinyBall.getXPosition() - 5);
-                arena.pause();
-
-                if (tinyBall.getXPosition() == 0)
-                {
-                    tinyBall.setXPosition(tinyBall.getXPosition() + 5);
-                    arena.pause();
-                }
-            }
-
-            while (arena.rightPressed())
-            {
-                tinyBall.setXPosition(tinyBall.getXPosition() + 5);
-                arena.pause();
-
-                if (tinyBall.getXPosition() == arena.getArenaWidth())
-                {
-                    tinyBall.setXPosition(tinyBall.getXPosition() - 5);
-                    arena.pause();
-                }
-            }
-
-            while (arena.upPressed())
-            {
-                tinyBall.setYPosition(tinyBall.getYPosition() - 5);
-                arena.pause();
-
-                if (tinyBall.getYPosition() == 0)
-                {
-                    tinyBall.setYPosition(tinyBall.getYPosition() + 5);
-                    arena.pause();
-                }
-            }
-
-
             arena.pause();    
         }
     }
