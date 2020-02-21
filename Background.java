@@ -25,10 +25,10 @@ public class Background
         pipes[2] = new Rectangle(2000, 150, 100, 650, "MAGENTA"); 
         pipes[3] = new Rectangle(2500, 400, 100, 650, "WHITE"); 
 
-        pipes[4] = new Rectangle(1000, 0, 100, 650, "CYAN"); 
-        pipes[5] = new Rectangle(1500, 0, 100, 650, "RED"); 
-        pipes[6] = new Rectangle(2000, 0, 100, 650, "MAGENTA"); 
-        pipes[7] = new Rectangle(2500, 0, 100, 650, "WHITE"); 
+        pipes[4] = new Rectangle(1000, -500, 100, 650, "CYAN"); 
+        pipes[5] = new Rectangle(1500, -200, 100, 650, "RED"); 
+        pipes[6] = new Rectangle(2000, -600, 100, 650, "MAGENTA"); 
+        pipes[7] = new Rectangle(2500, -350, 100, 650, "WHITE"); 
 
         arena.addRectangle(grass);
 
@@ -51,7 +51,7 @@ public class Background
                     pipes[i].setXPosition​(2000);
                     pipes[i].setYPosition​(Math.random() * (max - min + 1) + min);
                     pipes[i+4].setXPosition​(2000);
-                    pipes[i+4].setYPosition​(700 - pipes[i].getYPosition());
+                    pipes[i+4].setYPosition​(pipes[i].getYPosition() -750);
                 }
 
             }
