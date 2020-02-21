@@ -1,11 +1,20 @@
 public class Background
 {
+    private  GameArena arena;
+
     public static void main (String [] args)
+    {
+        Background b = new Background();
+        b.init();
+    }
+
+
+    public void init()
     {
         int max = 750;
         int min = 100;
 
-        GameArena arena = new GameArena(1500, 750);
+        arena = new GameArena(1500, 750);
 
         Rectangle grass = new Rectangle(0, 650, 1500, 100, "GREEN");
 
@@ -42,7 +51,7 @@ public class Background
                     pipes[i].setXPosition​(2000);
                     pipes[i].setYPosition​(Math.random() * (max - min + 1) + min);
                     pipes[i+4].setXPosition​(2000);
-                    pipes[i+4].setYPosition​(Math.random() * (max - min + 1) + min);
+                    pipes[i+4].setYPosition​(700 - pipes[i].getYPosition());
                 }
 
             }
